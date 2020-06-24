@@ -69,7 +69,7 @@
     left: 10px;
 }
 /* 前面加.的是class */
-/* 前面加#的是id */
+/* 前面加#的是id并且要加div */
 </style>
 <template>
 
@@ -914,6 +914,7 @@
         </CarouselItem>
     </Carousel>
                 </Card>
+            
     <Divider><p style="font-size:28px;font-family:'宋体';font-weight:bolder">球队基础数据</p></Divider>
                             <div class="container1">
                         <div id="1">
@@ -988,7 +989,7 @@
             </Content> </i-col>
        
     </Row>
-    
+    <BackTop></BackTop>
      
     </div>
 </template>
