@@ -71,7 +71,7 @@
   },
   methods: {
       back(){
-          this.$router.go(-1)
+          this.$router.push('/')
       },
     drawLine(){
         // 基于准备好的dom，初始化echarts实例

@@ -66,7 +66,9 @@
         mounted(){
     this.drawLine();
   },
-  methods: {
+  methods: {back(){
+      this.$router.push('/')
+  },
     drawLine(){
                 var myChart = this.$echarts.init(document.getElementById('myChart'));
    let option = {

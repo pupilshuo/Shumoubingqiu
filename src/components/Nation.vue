@@ -99,7 +99,9 @@
     mounted() {
       this.initChart();
     },
-    methods: {
+    methods: {back(){
+      this.$router.push('/')
+    },
       initChart() {
         this.chart = echarts.init(this.$refs.myEchart);
         window.onresize = echarts.init(this.$refs.myEchart).resize;

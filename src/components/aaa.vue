@@ -110,7 +110,7 @@
             <p class="content" style="color:#367ECA;font-family:'草书'">冰球你了解多少？</p>
         </Timeline-item>
         <Timeline-item>
-            <p class="time" style="font-weight: bolder;font-size:23px;color:#367ECA;font-family:'隶书'">便览群雄</p>
+            <p class="time" style="font-weight: bolder;font-size:23px;color:#367ECA;font-family:'隶书'">遍览群雄</p>
             <p class="content"  style="color:#367ECA;font-family:'楷书'">NHL球队你知道吗？</p>
         </Timeline-item>
         <Timeline-item>
@@ -127,9 +127,9 @@
  
 
     <div style="padding: 0px;background: #D3D3D3">
-        <Card title="基础数据"  icon="ios-options" :padding="0" shadow style="width: auto;" :style="{background: '#FFF',}">
+        <Card title="基础数据"  icon="ios-options" :padding="0" shadow style="width: auto;" :style="{background: '#FFF'}">
             <CellGroup>
-                <Cell title="历史球队运动表现图" to="/h" target="_blank" >
+                <Cell title="历史球队运动表现图" to="/h" target="_blank" style="" >
               
                 </Cell>
                 <Cell title="球场站位球员工资图" to="/p" target="_blank" >
@@ -915,51 +915,58 @@
     </Carousel>
                 </Card>
             
-    <Divider><p style="font-size:28px;font-family:'宋体';font-weight:bolder">球队基础数据</p></Divider>
-                            <div class="container1">
-                        <div id="1">
+    <Divider><p style="font-size:48px;font-family:'宋体';font-weight:bolder">球队基础数据</p></Divider>
+                        <Row>
+        <Col span="6"> <div id="1">
                          <svg @click="history" aria-hidden="true">
-    <use xlink:href="#iconico_shuju"></use> </svg><p @click="history" style="font-size:24px">历史球队运动表现图</p>
-                        </div>
-                        <div id="2">
+    <use xlink:href="#iconico_shuju"></use> </svg><p @click="history" style="font-size:20px">历史球队运动表现图</p>
+                        </div></Col>
+        <Col span="6"><div id="2">
                         <svg @click="position" aria-hidden="true">
-    <use xlink:href="#iconshuju"></use> </svg><p @click="position" style="font-size:24px"> 球场站位球员工资图</p>
-                        </div>
-                        <div id="3">
+    <use xlink:href="#iconshuju"></use> </svg><p @click="position" style="font-size:20px"> 球场站位球员工资图</p>
+                        </div></Col>
+        <Col span="6"> <div id="3">
                          <svg @click="test" aria-hidden="true">
-    <use xlink:href="#iconshuju1"></use> </svg><p @click="test" style="font-size:24px"> 不同国家球员进攻效率图</p>
-                        </div>
-                        <div id="4">
+    <use xlink:href="#iconshuju1"></use> </svg><p @click="test" style="font-size:20px"> 不同国家球员进攻效率图</p>
+                        </div></Col>
+        <Col span="6"><div id="4">
                          <svg @click="career" aria-hidden="true">
-    <use xlink:href="#iconjinzitatu"></use> </svg><p @click="career" style="font-size:24px"> 不同球龄球员工资图</p>
+    <use xlink:href="#iconjinzitatu"></use> </svg><p @click="career" style="font-size:20px"> 不同球龄球员工资图</p>
                         </div>
-                        </div>
-     <Divider><p style="font-size:28px;font-family:'宋体';font-weight:bolder">球队损伤数据</p></Divider>
+    </Col>
+    </Row>            
+     <Divider><p style="font-size:48px;font-family:'宋体';font-weight:bolder">球队损伤数据</p></Divider>
      <div class="container2">
-                        <div id="1">
+         <br>
+    <Row>
+        <Col span="8"><div id="1">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconico_shuju"></use> </svg><p @click="calendar" style="font-size:24px">球员运动损伤日历图</p>
+    <use xlink:href="#iconico_shuju"></use> </svg><p @click="calendar" style="font-size:20px">球员运动损伤日历图</p>
                         </div>
                         <div id="2">
                         <svg aria-hidden="true">
-    <use xlink:href="#iconshuju"></use> </svg><p @click="injury" style="font-size:24px"> 球员损伤部位图</p>
-                        </div>
-                        <div id="3">
+    <use xlink:href="#iconshuju"></use> </svg><p @click="injury" style="font-size:20px"> 球员损伤部位图</p>
+                        </div></Col>
+
+
+        <Col span="8"><div id="3">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconshuju1"></use> </svg><p @click="shape" style="font-size:24px"> 球场损伤象形柱图</p>
-                        </div>
-                         <div id="4">
+    <use xlink:href="#iconshuju1"></use> </svg><p @click="shape" style="font-size:20px"> 球场损伤象形柱图</p>
+                        </div> <div id="6">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconciyuntu"></use> </svg><p @click="Ec"  style="font-size:24px"> 冰球运动损伤词云图</p>
-                        </div>
-                         <div id="5">
+    <use xlink:href="#icontubiaozhizuomoban"></use> </svg><p @click="year"  style="font-size:20px">历年损伤统计图</p>
+                        </div></Col>
+
+                        
+        <Col span="8">  <div id="4">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconjinzitatu"></use> </svg><p @click="graph"  style="font-size:24px">损伤文献知识图谱</p>
+    <use xlink:href="#iconciyuntu"></use> </svg><p @click="Ec"  style="font-size:20px"> 冰球运动损伤词云图</p>
                         </div>
-                         <div id="6">
+                        <div id="5">
                          <svg aria-hidden="true">
-    <use xlink:href="#icontubiaozhizuomoban"></use> </svg><p @click="year"  style="font-size:24px">历年损伤统计图</p>
-                        </div>
+    <use xlink:href="#iconjinzitatu"></use> </svg><p @click="graph"  style="font-size:20px">损伤文献知识图谱</p>
+                        </div></Col>
+    </Row>
                         
                         </div>
       <Divider></Divider>
@@ -978,19 +985,19 @@
         <i-col span="6"><img src="../assets\1.png" style="height:380px;width:250px"></i-col>
     </Row>
        
-    <Divider><P style="font-size:28px;font-family：'宋体';">数谋相关</P></Divider> 
+    <Divider><P style="font-size:48px;font-family：'宋体';">数谋相关</P></Divider> 
     <div id="7">
                          <svg aria-hidden="true">
     <use xlink:href="#iconshuju3"></use> </svg><p @click="regression"  style="font-size:24px">损伤对球员影响回归图</p>
                         </div>                   
     <Divider dashed />
-    <p>数据来源：hockeyreference.com  </p>
+    <p>Credit：2020-2030</p>
                 
             </Content> </i-col>
        
     </Row>
     <BackTop></BackTop>
-     
+     <!-- 这个是返回顶端 -->
     </div>
 </template>
 <script>

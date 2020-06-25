@@ -71,6 +71,9 @@
         this.drawLine()
        },
         methods:{
+            back(){
+                this.$router.push('/')
+            },
             drawLine(){
                   var myChart = this.$echarts.init(document.getElementById('mainbar1'));
         myChart.setOption({
