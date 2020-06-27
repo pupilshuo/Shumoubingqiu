@@ -1,4 +1,10 @@
 <style scoped>
+.is_fixed{
+     width: 300px;
+     position: fixed;
+     top: 0;
+     z-index: 999;
+}
     .layout{
         border: 1px solid #d7dde4;
         background: #f5f7f9;
@@ -125,8 +131,9 @@
 
 
  
-
-    <div style="padding: 0px;background: #D3D3D3">
+<!-- 制作吸顶 -->
+    <div :class="{'is_fixed':isFixed}">
+    <div style="padding: 0px;background: #D3D3D3" >
         <Card title="基础数据"  icon="ios-options" :padding="0" shadow style="width: auto;" :style="{background: '#FFF'}">
             <CellGroup>
                 <Cell title="历史球队运动表现图" to="/h" target="_blank" style="" >
@@ -149,7 +156,7 @@
 
 
 
-    <div style="padding: 0px;background: #f8f8f9">
+    <div style="padding: 0px;background: #f8f8f9" >
         <Card title="损伤数据" icon="ios-options" :padding="0" shadow style="width: auto;" :style="{background: '#FFF',}">
             <CellGroup>
                 <Cell title="球员运动损伤日历图" to="js/c" target="_blank" >
@@ -173,7 +180,7 @@
             </CellGroup>
         </Card>
     </div>
-    <div style="padding: 0px;background: #f8f8f9">
+    <div style="padding: 0px;background: #f8f8f9" >
         <Card title="回归数据" icon="ios-options" :padding="0" shadow style="width: auto;" :style="{background: '#FFF',}">
             <CellGroup>
                 <Cell title="损伤对球员影响回归图" to="/js/p" target="_blank" >
@@ -181,6 +188,7 @@
                 </Cell>
             </CellGroup>
         </Card>
+    </div>
     </div>
     </i-col>
         <i-col span="19" :style="{background: '#FFF'}" >  <Content :style="{padding: '0 16px 16px'}">
@@ -202,7 +210,8 @@
             </div></i-col>
         <i-col span="6"><img src="../assets\1.png" style="height:380px;width:250px"></i-col>
     </Row>
-    
+    <div id="boxFixed"></div>
+    <!-- 同样设置 -->
     <Divider><p style="font-size:28px;font-family:'宋体'">球队巡礼</p></Divider>
    <Card>
                     <Carousel autoplay-speed:1000  loop>
@@ -600,7 +609,7 @@
         </CarouselItem>
          <CarouselItem>
             <div class="demo-carousel">  <Row>
-        <i-col span="12"><img src="../assets\team\布法罗.png" style="width:400px;height:400px"/></i-col>
+        <i-col span="12"><img src="../assets\team\布法罗.jpg" style="width:400px;height:400px"/></i-col>
         <i-col span="12">
             <div class="demo-carousel">
              <Collapse v-model="value1">
@@ -916,6 +925,7 @@
                 </Card>
             
     <Divider><p style="font-size:48px;font-family:'宋体';font-weight:bolder">球队基础数据</p></Divider>
+    <br>
                         <Row>
         <Col span="6"> <div id="1">
                          <svg @click="history" aria-hidden="true">
@@ -957,7 +967,7 @@
     <use xlink:href="#icontubiaozhizuomoban"></use> </svg><p @click="year"  style="font-size:20px">历年损伤统计图</p>
                         </div></Col>
 
-                        
+
         <Col span="8">  <div id="4">
                          <svg aria-hidden="true">
     <use xlink:href="#iconciyuntu"></use> </svg><p @click="Ec"  style="font-size:20px"> 冰球运动损伤词云图</p>
@@ -1004,6 +1014,8 @@
     export default {
        data(){
            return{
+                isFixed: false,
+        offsetTop: 0,//吸顶参数
                           // 视频播放
                 modal1: false,
                 value1:1,
@@ -1101,6 +1113,24 @@
     regression(){
           this.$router.push('js/r')
       },
-       }
+
+initHeight() {
+// 设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 (被卷曲的高度)
+         var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+//如果被卷曲的高度大于吸顶元素到顶端位置 的距离
+          this.isFixed = scrollTop > this.offsetTop ? true : false;
+},
+       },
+       mounted() {
+    window.addEventListener('scroll', this.initHeight);
+    this.$nextTick(() => {
+    //获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置 
+    this.offsetTop = document.querySelector('#boxFixed').offsetTop;
+    })
+},
+//回调中移除监听
+destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
+}
     }
 </script>
