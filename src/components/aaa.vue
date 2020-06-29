@@ -1,6 +1,6 @@
 <style scoped>
 .is_fixed{
-     width: 300px;
+     width: 350px;
      position: fixed;
      top: 0;
      z-index: 999;
@@ -94,7 +94,7 @@
         v-model="modal1"
         title="关于我们"
         @on-ok="ok"
-        @on-cancel="cancel">
+        >
         <p>联系电话:13011220116</p>
         <p>联系邮箱:897653890@qq.com</p>
         
@@ -112,37 +112,37 @@
             
             <Timeline :style="{background: '#D3E8FB',}">
         <Timeline-item>
-            <p class="time" style="font-weight: bolder;font-size:24px;color:#8497B0;font-family:'隶书'">初探冰球</p>
-            <p class="content" style="color:#367ECA;font-family:'草书'">冰球你了解多少？</p>
+            <p class="time" style="font-weight: bolder;font-size:22px;color:#8497B0;font-family:'隶书'">初探冰球</p>
+            <p class="content" style="color:#367ECA;font-family:'隶书';font-size:15px">冰球你了解多少？</p>
         </Timeline-item>
         <Timeline-item>
-            <p class="time" style="font-weight: bolder;font-size:23px;color:#367ECA;font-family:'隶书'">遍览群雄</p>
-            <p class="content"  style="color:#367ECA;font-family:'楷书'">NHL球队你知道吗？</p>
+            <p class="time" style="font-weight: bolder;font-size:24px;color:#367ECA;font-family:'隶书'">便览群雄</p>
+            <p class="content"  style="color:#367ECA;font-family:'隶书';font-size:15px">NHL球队你知道吗？</p>
         </Timeline-item>
         <Timeline-item>
-            <p class="time" style="font-weight: bolder;font-size:24px;color:#035BA7;font-family:'隶书'">由浅入深</p>
-            <p class="content"  style="color:#367ECA;font-family:'楷书'">图解运动损伤与冰球数据</p>
+            <p class="time" style="font-weight: bolder;font-size:26px;color:#035BA7;font-family:'隶书'">由浅入深</p>
+            <p class="content"  style="color:#367ECA;font-family:'隶书';font-size:15px">图解运动损伤与冰球数据</p>
         </Timeline-item>
         <Timeline-item>
-            <p class="time" style="font-weight: bolder;font-size:24px;color:#023574;font-family:'隶书'" >数谋相关</p>
-            <p class="content"  style="color:#367ECA;font-family:'楷书'">运动损伤对球队表现是否有影响?</p>
+            <p class="time" style="font-weight: bolder;font-size:28px;color:#023574;font-family:'隶书'" >数谋相关</p>
+            <p class="content"  style="color:#367ECA;font-family:'隶书';font-size:15px">运动损伤对球队表现是否有影响?</p>
         </Timeline-item>
     </Timeline>
 
 
  
-<!-- 制作吸顶 -->
+    <!-- 制作吸顶 -->
     <div :class="{'is_fixed':isFixed}">
     <div style="padding: 0px;background: #D3D3D3" >
         <Card title="基础数据"  icon="ios-options" :padding="0" shadow style="width: auto;" :style="{background: '#FFF'}">
             <CellGroup>
-                <Cell title="历史球队运动表现图" to="/h" target="_blank" style="" >
+                <Cell title="NHL球队进攻效率图" to="/h" target="_blank" style="" >
               
                 </Cell>
                 <Cell title="球场站位球员工资图" to="/p" target="_blank" >
               
                 </Cell>
-                <Cell title="不同国家球员进攻效率图" to="/n" target="_blank" >
+                <Cell title="世界球员进攻效率热图" to="/n" target="_blank" >
               
                 </Cell>
                 <Cell title="不同球龄球员工资图" to="/c" target="_blank" >
@@ -162,16 +162,16 @@
                 <Cell title="球员运动损伤日历图" to="js/c" target="_blank" >
                   
                 </Cell>
-                <Cell title="球场损伤部位图" to="js/i" target="_blank" >
+                <Cell title="球员损伤部位图" to="js/i" target="_blank" >
                
                 </Cell>
-                <Cell title="冰球运动损伤词云图" to="js/e" target="_blank" >
+                <Cell title="运动损伤词云图" to="js/e" target="_blank" >
                
                 </Cell>
-                <Cell title="球场损伤象形柱图" to="js/s" target="_blank" >
+                <Cell title="球员损伤部位象形柱图" to="js/s" target="_blank" >
                
                 </Cell>
-                <Cell title="损伤文献知识图谱" to="js/g" target="_blank" >
+                <Cell title="冰球损伤文献知识图谱" to="js/g" target="_blank" >
                
                 </Cell>
                 <Cell title="历年损伤统计图" to="js/y" target="_blank" >
@@ -195,9 +195,10 @@
             <div class="head" :style="{background: '#97BEE9'}">
                 <font :style="{background: '#97BEE9'}" style="font-family:'隶书';font-size:60px">数谋冰球，扭劣则佳</font>
            </div>
-            <Divider></Divider>
+            <Divider ><p style="font-size:38px;font-family:'隶书'">>> 初探冰球 <<</p></Divider>
+            <div >
               <Row>
-        <i-col span="6"><img src="../assets\1.png" style="height:380px;width:250px"></i-col>
+        <i-col span="6"><img src="../assets\1.png" style="height:380px;width:250px;font-weight:bolder"></i-col>
         <i-col span="12"><div class="video"  >
                         <div class="input_video" :style="{background: '#FFFFF0',width:'650px',height:'380px'}">
     <video-player  class="video-player vjs-custom-skin"
@@ -210,9 +211,10 @@
             </div></i-col>
         <i-col span="6"><img src="../assets\1.png" style="height:380px;width:250px"></i-col>
     </Row>
+            </div>
     <div id="boxFixed"></div>
     <!-- 同样设置 -->
-    <Divider><p style="font-size:28px;font-family:'宋体'">球队巡礼</p></Divider>
+    <Divider ><p style="font-size:38px;font-family:'隶书'">>> 便览群雄 <<</p></Divider>
    <Card>
                     <Carousel autoplay-speed:1000  loop>
         <CarouselItem>
@@ -924,62 +926,63 @@
     </Carousel>
                 </Card>
             
-    <Divider><p style="font-size:48px;font-family:'宋体';font-weight:bolder">球队基础数据</p></Divider>
-    <br>
+    <Divider ><p style="font-size:38px;font-family:'隶书'">>> 球队基础数据 <<</p></Divider>
+    <div style="height:300px;margin-top:100px;">
                         <Row>
         <Col span="6"> <div id="1">
                          <svg @click="history" aria-hidden="true">
-    <use xlink:href="#iconico_shuju"></use> </svg><p @click="history" style="font-size:20px">历史球队运动表现图</p>
+    <use xlink:href="#iconfsux_tubiao_duijizhuzhuangtu"></use> </svg><p @click="history" style="font-size:20px">NHL球队进攻效率图</p>
                         </div></Col>
         <Col span="6"><div id="2">
                         <svg @click="position" aria-hidden="true">
-    <use xlink:href="#iconshuju"></use> </svg><p @click="position" style="font-size:20px"> 球场站位球员工资图</p>
+    <use xlink:href="#iconfsux_tubiao_loudoutu"></use> </svg><p @click="position" style="font-size:20px"> 球场站位球员工资图</p>
                         </div></Col>
         <Col span="6"> <div id="3">
                          <svg @click="test" aria-hidden="true">
-    <use xlink:href="#iconshuju1"></use> </svg><p @click="test" style="font-size:20px"> 不同国家球员进攻效率图</p>
+    <use xlink:href="#iconfsux_tubiao_ditu_reli"></use> </svg><p @click="test" style="font-size:20px"> 世界球员进攻效率热图</p>
                         </div></Col>
         <Col span="6"><div id="4">
                          <svg @click="career" aria-hidden="true">
-    <use xlink:href="#iconjinzitatu"></use> </svg><p @click="career" style="font-size:20px"> 不同球龄球员工资图</p>
+    <use xlink:href="#iconfsux_tubiao_yibiaopan"></use> </svg><p @click="career" style="font-size:20px"> 不同球龄球员工资图</p>
                         </div>
     </Col>
     </Row>            
-     <Divider><p style="font-size:48px;font-family:'宋体';font-weight:bolder">球队损伤数据</p></Divider>
-     <div class="container2">
+    </div>
+     <Divider ><p style="font-size:38px;font-family:'隶书'">>> 球队损伤数据 <<</p></Divider>
+     <div class="container2" style='height:450px;margin-top:50px;'>
          <br>
     <Row>
         <Col span="8"><div id="1">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconico_shuju"></use> </svg><p @click="calendar" style="font-size:20px">球员运动损伤日历图</p>
+    <use xlink:href="#iconfsux_tubiao_masaiketu"></use> </svg><p @click="calendar" style="font-size:20px">球员运动损伤日历图</p>
                         </div>
                         <div id="2">
                         <svg aria-hidden="true">
-    <use xlink:href="#iconshuju"></use> </svg><p @click="injury" style="font-size:20px"> 球员损伤部位图</p>
+    <use xlink:href="#iconzhuxingtu"></use> </svg><p @click="injury" style="font-size:20px"> 球员损伤部位图</p>
                         </div></Col>
 
 
         <Col span="8"><div id="3">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconshuju1"></use> </svg><p @click="shape" style="font-size:20px"> 球场损伤象形柱图</p>
+    <use xlink:href="#iconfsux_tubiao_zhifangtu"></use> </svg><p @click="shape" style="font-size:20px">球员损伤部位象形柱图</p>
                         </div> <div id="6">
                          <svg aria-hidden="true">
-    <use xlink:href="#icontubiaozhizuomoban"></use> </svg><p @click="year"  style="font-size:20px">历年损伤统计图</p>
+    <use xlink:href="#iconfsux_tubiao_baifenbihuantu"></use> </svg><p @click="year"  style="font-size:20px">历年损伤统计图</p>
                         </div></Col>
 
 
         <Col span="8">  <div id="4">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconciyuntu"></use> </svg><p @click="Ec"  style="font-size:20px"> 冰球运动损伤词云图</p>
+    <use xlink:href="#iconfsux_tubiao_ciyun"></use> </svg><p @click="Ec"  style="font-size:20px"> 运动损伤词云图</p>
                         </div>
                         <div id="5">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconjinzitatu"></use> </svg><p @click="graph"  style="font-size:20px">损伤文献知识图谱</p>
+    <use xlink:href="#iconfsux_tubiao_guanxitu"></use> </svg><p @click="graph"  style="font-size:20px">冰球冰球损伤文献知识图谱</p>
                         </div></Col>
     </Row>
                         
                         </div>
-      <Divider></Divider>
+      <Divider ><P style="font-size:38px;font-family:'隶书'">>> 数谋相关 <<</P></Divider>
             <Row>
         <i-col span="6"><img src="../assets\1.png" style="height:380px;width:250px"></i-col>
         <i-col span="12"><div class="video"  >
@@ -995,10 +998,10 @@
         <i-col span="6"><img src="../assets\1.png" style="height:380px;width:250px"></i-col>
     </Row>
        
-    <Divider><P style="font-size:48px;font-family：'宋体';">数谋相关</P></Divider> 
+    <Divider ></Divider> 
     <div id="7">
                          <svg aria-hidden="true">
-    <use xlink:href="#iconshuju3"></use> </svg><p @click="regression"  style="font-size:24px">损伤对球员影响回归图</p>
+    <use xlink:href="#iconfsux_tubiao_huiguiquxiantu"></use> </svg><p @click="regression"  style="font-size:24px">损伤对球员影响回归图</p>
                         </div>                   
     <Divider dashed />
     <p>Credit：2020-2030</p>
@@ -1032,7 +1035,7 @@
                         type : "video/mp4",
                         src : require('../assets/1.mp4')//url地址
                     } ],
-                    poster : "", //你的封面地址
+                    poster : "https://outin-6a24895c919711eab60900163e1c8dba.oss-cn-shanghai.aliyuncs.com/image/default/06D625A734D9466AADD2E6950D8CA7B8-6-2.png", //你的封面地址
                      width: 800,
                     notSupportedMessage : '此视频暂无法播放，请稍后再试', //允许覆盖Video.js无法播放媒体源时显示的默认信息。
                     controlBar : {

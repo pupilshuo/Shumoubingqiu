@@ -36,7 +36,7 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">历史球队进攻效率图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">NHL球队进攻效率图</font>
             <div class="layout-ceiling-main">
                 <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
                 <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
@@ -134,7 +134,7 @@
     title:{
         show:true,
         text:'2015-2020NHL各球队比赛进攻效率',
-        subtext:'数据来源：hockeyreference.com',
+        subtext:'(数据来源：Hockey Reference)',
         textStyle: {//主标题文本样式{"fontSize": 18,"fontWeight": "bolder","color": "#333"}
                 fontFamily: '微软雅黑',
                 fontSize: 16,

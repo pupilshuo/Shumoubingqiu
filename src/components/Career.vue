@@ -36,7 +36,7 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">球场位置与工资分布图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">不同球龄球员工资图</font>
             <div class="layout-ceiling-main">
                 <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
                 <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
@@ -88,7 +88,7 @@
     },
      title : {          
          text:'新兵工资占比图',
-         subtext:'数据来源：hockeyreference.com',     //设置仪表盘中间显示文字样式
+         subtext:'(数据来源：Hockey Reference)',     //设置仪表盘中间显示文字样式
                         textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                             color:"black"
                         }
@@ -114,7 +114,7 @@
     },
     title:{
         text:'老兵工资占比图',
-        subtext:'数据来源：hockeyreference.com',
+        subtext:'(数据来源：Hockey Reference)',
     },
     toolbox: {
         feature: {
@@ -134,7 +134,7 @@
         })
         // 绘制图表
         myChart.setOption({
-            title: { text: '不同服役时间球员的工资图',subtext:'数据来源：hockeyreference.com', },
+            title: { text: '不同服役时间球员的工资图',subtext:'(数据来源：Hockey Reference)', },
             tooltip: {},
             xAxis: {
                  type: 'category',

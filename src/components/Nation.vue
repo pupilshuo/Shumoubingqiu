@@ -110,7 +110,7 @@
           backgroundColor: "#FDF5E6",
           title: {    //地图显示标题
             text: '不同国家球员进攻效率热图',
-            subtext: '数据来源：hockeyreference.com',
+            subtext: '(数据来源：Hockey Reference)',
             sublink: 'http://www.hockeyreference.com',
             top:"28px",
             left: 'center',

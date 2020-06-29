@@ -36,7 +36,7 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">球员站位工资图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">球场站位球员工资图</font>
             <div class="layout-ceiling-main">
                 <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
                 <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
@@ -84,7 +84,7 @@
         myChart1.setOption({
               title: {
         text: '不同位置球员工资比例图',
-        subtext: 'NHL联赛15-20赛季',subtext:'数据来源：hockeyreference.com',
+        subtext: 'NHL联赛15-20赛季',subtext:'(数据来源：Hockey Reference)',
     },
     tooltip: {
         trigger: 'item',
@@ -148,7 +148,7 @@
         myChart.setOption({   
               title: {
         text: '不同位置球员工资比例图',
-        subtext: 'NHL联赛15-20赛季',subtext:'数据来源：hockeyreference.com',
+        subtext: 'NHL联赛15-20赛季',subtext:'(数据来源：Hockey Reference)',
     },  
             series : [
 {
