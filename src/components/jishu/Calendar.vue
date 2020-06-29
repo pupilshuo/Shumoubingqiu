@@ -39,16 +39,26 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">损伤分布日历图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">球员运动损伤日历图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="球员运动损伤日历图"
+        @on-ok="ok"
+        >
+<p>
+通过对2015-2020年间损伤相关数据的读取进行每年每月具体日期损伤数量日历图的制作，并能够得到单日损伤数最多可达68，且损伤爆发期为10月份的结论。
+</p>
+        </Modal>
+
             </div>
         </div>
         
-        <div style="height: 1500px">
-            <div class="chart" id="myChart" :style="{width: '1400px', height: '1500px'}"></div>
+        <div style="height: 850px">
+            <div class="chart" id="myChart" :style="{width: '1400px', height: '850px'}"></div>
         </div>
         <div class="layout-copy">
             2020-2030 &copy; TalkingData
@@ -61,7 +71,7 @@
     export default {
         data(){
             return{
-
+                modal1:false
             }
         },
         mounted(){
@@ -76,11 +86,11 @@
         // 绘制图表
         
         myChart.setOption({
-             title: {
+            title: {
                 //top: 15,
                 //left: 600,
                 text: '2015-2020每日损伤数分布图',
-                  subtext: '数据来自NHL交易网站',
+                subtext: '数据来源：NHL交易网站',
             },
             tooltip: {
                 position: 'top',
@@ -89,15 +99,31 @@
                     return format + ': ' + p.data[1];
                 }
             },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: '85%',
+                top: 'center',
+                bottom:'200',
+                feature: {
+                    mark: {show: true},
+                    dataView: {show: true, readOnly: false},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            grid:{
+                top:80
+            },
             visualMap: {
                 show: true,
                 min: 0,
                 max: 68,
-                text:['max','min'],
+                text:['最大值','最小值'],
                 calculable: true,
                 orient: 'vertical',
-                left: '1200',
-                top: '400',
+                left: '1150',
+                top: '500',
                 color: ['black','#53261f','#78331e','white']
                 // type: 'piecewise',
                 // textStyle: {
@@ -108,21 +134,21 @@
 
             calendar: [{
                 orient: 'vertical',
-                cellSize: [15, 15],
-                bottom: 550,
+                cellSize: [11, 11],
+                top: '15%' ,
                 range: '2015'
             },
             {
                 left: 300,
                 orient: 'vertical',
-                bottom: 550,
-                cellSize: [15, 15],
+                top: '15%' ,
+                cellSize: [11, 11],
                 range: '2016'
             },
             {
                 left: 520,
-                cellSize: [15, 15],
-                bottom: 550,
+                cellSize: [11, 11],
+                top: '15%' ,
                 orient: 'vertical',
                 range: '2017',
                 dayLabel: {
@@ -130,8 +156,8 @@
                 }
             },{
                 left: 740,
-                cellSize: [15, 15],
-                bottom: 550,
+                cellSize: [11, 11],
+                top: '15%' ,
                 orient: 'vertical',
                 range: '2018',
                 dayLabel: {
@@ -139,8 +165,8 @@
                 }
             },{
                 left: 960,
-                cellSize:[15, 15],
-                bottom: 550,
+                cellSize:[11, 11],
+                top: '15%' ,
                 orient: 'vertical',
                 range: '2019',
                 dayLabel: {
@@ -148,8 +174,8 @@
                 }
             },{
                 left: 1180,
-                cellSize:[15, 15],
-                bottom: 1180,
+                cellSize:[11, 11],
+                top: '15%' ,
                 orient: 'vertical',
                 range: ['2020-01-01', '2020-03-11'],
                 dayLabel: {
@@ -214,6 +240,7 @@
                 data: [['2020-01-01', 1], ['2020-01-02', 8], ['2020-01-03', 7], ['2020-01-04', 10], ['2020-01-05', 3], ['2020-01-06', 5], ['2020-01-07', 5], ['2020-01-08', 5], ['2020-01-09', 6], ['2020-01-10', 3], ['2020-01-11', 6], ['2020-01-12', 6], ['2020-01-13', 3], ['2020-01-14', 6], ['2020-01-15', 1], ['2020-01-16', 13], ['2020-01-17', 1], ['2020-01-18', 5], ['2020-01-19', 0], ['2020-01-20', 2], ['2020-01-21', 5], ['2020-01-22', 0], ['2020-01-23', 0], ['2020-01-24', 0], ['2020-01-25', 0], ['2020-01-26', 0], ['2020-01-27', 1], ['2020-01-28', 1], ['2020-01-29', 5], ['2020-01-30', 5], ['2020-01-31', 5], ['2020-02-01', 11], ['2020-02-02', 1], ['2020-02-03', 8], ['2020-02-04', 14], ['2020-02-05', 3], ['2020-02-06', 14], ['2020-02-07', 5], ['2020-02-08', 5], ['2020-02-09', 7], ['2020-02-10', 8], ['2020-02-11', 
 6], ['2020-02-12', 4], ['2020-02-13', 9], ['2020-02-14', 6], ['2020-02-15', 7], ['2020-02-16', 5], ['2020-02-17', 5], ['2020-02-18', 8], ['2020-02-19', 4], ['2020-02-20', 12], ['2020-02-21', 6], ['2020-02-22', 10], ['2020-02-23', 7], ['2020-02-24', 2], ['2020-02-25', 15], ['2020-02-26', 6], ['2020-02-27', 9], ['2020-02-28', 0], ['2020-02-29', 5], ['2020-03-01', 3], ['2020-03-02', 6], ['2020-03-03', 5], ['2020-03-04', 4], ['2020-03-05', 4], ['2020-03-06', 6], ['2020-03-07', 4], ['2020-03-08', 5], ['2020-03-09', 6], ['2020-03-10', 9], ['2020-03-11', 0]]//getVirtulData(2020)
             },]
+
     })}
   }        
     }

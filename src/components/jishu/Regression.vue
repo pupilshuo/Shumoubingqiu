@@ -38,13 +38,29 @@
         <div class="layout-ceiling">
                 <font class="title" style="font-family:'隶书';font-size:40px;color:white">损伤对球员影响回归图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="损伤对球员影响回归图"
+        @on-ok="ok"
+        >
+<p>
+	2015-2020年间NHL各球队损伤数分布直方图
+以直方图的形式将统计所得的2015-2020年间NHL各球队损伤数的分布情况进行展示，可发现，其基本符合正态分布。
+	2015-2020年间NHL各球队进攻效率分布直方图
+以直方图的形式将统计所得的2015-2020年间NHL各球队进攻效率的分布情况进行展示，可发现，进攻效率出现了偏峰现象。
+	2015-2020年间NHL年度损伤数年度折线图
+以折线图的形式将统计所得的2015-2020年间NHL每年度损伤数量的变化情况进行展示，可发现，损伤数量在2015-2018年逐年上升，2019年有所下降，但下降幅度较小。
+	线性回归分析图
+对损伤数量和进攻效率进行线性回归分析，可发现，损伤数量与球队进攻效率呈现负相关。</p>
+</Modal>
+
             </div>
         </div>
         
-        <div style="height: 1000px">
+        <div style="height: 800px;margin-left:100px">
        <div id="mainbar1" style="height:400px;width:700px;position:absolute;margin-top:20px;border:0px solid #ccc;"></div>
     <div id="mainbar2" style="height:400px;width:700px;position:absolute;margin-left:750px;margin-top:20px;border:0px solid #ccc;"></div>
     <!-- <div id="mainMap" style="height:400px;border:1px solid #ccc;margin:0 auto;"></div> -->
@@ -63,7 +79,7 @@
     export default {
        data(){
            return{
-
+               modal1:false   
            }
        },
       
@@ -88,7 +104,7 @@
             //     data:['蒸发量','降水量']
             // },
             grid:{
-                y:'80'
+                y:'120'
             },
             toolbox: {
                 show : true,
@@ -145,7 +161,8 @@
                 trigger: 'axis'
             },
             grid:{
-                y:'80'
+                y:'80',
+                right:'80'
             },
             // legend: {
             //     data:['蒸发量','降水量']
@@ -296,7 +313,7 @@
             },
             grid: {
                 top: 80,
-                
+                right:80
             },
             toolbox: {
         	        show : true,

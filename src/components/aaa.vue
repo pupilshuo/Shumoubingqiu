@@ -86,7 +86,7 @@
                     <div class="layout-logo" ><img id="1" src="../assets/log.jpg" width="10"/></div>
                     <div class="layout-nav" style="font-size:16px">
                      <div class="nav2">
-                            <Icon type="ios-keypad" @click="modal1 = true" ></Icon>
+                            <Icon type="ios-keypad" @click="modal2 = true" ></Icon>
                             网址二维码
                             <Icon type="ios-analytics" @click="modal1 = true" ></Icon>
                             关于我们
@@ -98,6 +98,13 @@
         <p>联系电话:13011220116</p>
         <p>联系邮箱:897653890@qq.com</p>
         
+    </Modal>
+    <Modal
+        v-model="modal2"
+        title="二维码"
+        @on-ok="ok"
+        >
+        <img  style="margin-left:40px" src="../assets/m.png"/>
     </Modal>
                      </div>
                     </div>
@@ -929,56 +936,56 @@
     <Divider ><p style="font-size:38px;font-family:'隶书'">>> 球队基础数据 <<</p></Divider>
     <div style="height:300px;margin-top:100px;">
                         <Row>
-        <Col span="6"> <div id="1">
+        <i-col span="6"> <div id="1">
                          <svg @click="history" aria-hidden="true">
     <use xlink:href="#iconfsux_tubiao_duijizhuzhuangtu"></use> </svg><p @click="history" style="font-size:20px">NHL球队进攻效率图</p>
-                        </div></Col>
-        <Col span="6"><div id="2">
+                        </div></i-col>
+        <i-col span="6"><div id="2">
                         <svg @click="position" aria-hidden="true">
     <use xlink:href="#iconfsux_tubiao_loudoutu"></use> </svg><p @click="position" style="font-size:20px"> 球场站位球员工资图</p>
-                        </div></Col>
-        <Col span="6"> <div id="3">
+                        </div></i-col>
+        <i-col span="6"> <div id="3">
                          <svg @click="test" aria-hidden="true">
-    <use xlink:href="#iconfsux_tubiao_ditu_reli"></use> </svg><p @click="test" style="font-size:20px"> 世界球员进攻效率热图</p>
-                        </div></Col>
-        <Col span="6"><div id="4">
+    <use xlink:href="#iconfsux_tubiao_ditu_reli"></use> </svg><p @click="test" style="font-size:20px"> 不同地区进攻效率热图</p>
+                        </div></i-col>
+        <i-col span="6"><div id="4">
                          <svg @click="career" aria-hidden="true">
     <use xlink:href="#iconfsux_tubiao_yibiaopan"></use> </svg><p @click="career" style="font-size:20px"> 不同球龄球员工资图</p>
                         </div>
-    </Col>
+    </i-col>
     </Row>            
     </div>
      <Divider ><p style="font-size:38px;font-family:'隶书'">>> 球队损伤数据 <<</p></Divider>
      <div class="container2" style='height:450px;margin-top:50px;'>
          <br>
     <Row>
-        <Col span="8"><div id="1">
+        <i-col span="8"><div id="1">
                          <svg aria-hidden="true">
     <use xlink:href="#iconfsux_tubiao_masaiketu"></use> </svg><p @click="calendar" style="font-size:20px">球员运动损伤日历图</p>
                         </div>
                         <div id="2">
                         <svg aria-hidden="true">
     <use xlink:href="#iconzhuxingtu"></use> </svg><p @click="injury" style="font-size:20px"> 球员损伤部位图</p>
-                        </div></Col>
+                        </div></i-col>
 
 
-        <Col span="8"><div id="3">
+        <i-col span="8"><div id="3">
                          <svg aria-hidden="true">
     <use xlink:href="#iconfsux_tubiao_zhifangtu"></use> </svg><p @click="shape" style="font-size:20px">球员损伤部位象形柱图</p>
                         </div> <div id="6">
                          <svg aria-hidden="true">
     <use xlink:href="#iconfsux_tubiao_baifenbihuantu"></use> </svg><p @click="year"  style="font-size:20px">历年损伤统计图</p>
-                        </div></Col>
+                        </div></i-col>
 
 
-        <Col span="8">  <div id="4">
+        <i-col span="8">  <div id="4">
                          <svg aria-hidden="true">
     <use xlink:href="#iconfsux_tubiao_ciyun"></use> </svg><p @click="Ec"  style="font-size:20px"> 运动损伤词云图</p>
                         </div>
                         <div id="5">
                          <svg aria-hidden="true">
     <use xlink:href="#iconfsux_tubiao_guanxitu"></use> </svg><p @click="graph"  style="font-size:20px">冰球冰球损伤文献知识图谱</p>
-                        </div></Col>
+                        </div></i-col>
     </Row>
                         
                         </div>
@@ -1021,6 +1028,7 @@
         offsetTop: 0,//吸顶参数
                           // 视频播放
                 modal1: false,
+                 modal2: false,
                 value1:1,
                 playerOptions : {
                     playbackRates : [ 0.5, 1.0, 1.5, 2.0 ], //可选择的播放速度

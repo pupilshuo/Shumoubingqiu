@@ -39,16 +39,26 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">历年损伤统计图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white;margin-right:150px">历年损伤统计图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="历年损伤统计图"
+        @on-ok="ok"
+        >
+<p>
+通过2015-2020年间各年度损伤数据和各月份损伤数据进行饼图和折线图的联合展示，可以发现，3月和10月为各年度损伤高发月份。
+</p>
+</Modal>
+
             </div>
         </div>
         
-        <div style="height: 1000px">
-       <div id="myChart" class="chart" :style="{width: '1400px', height: '1000px'}"></div>
+        <div style="height: 800px;margin-left:70px">
+       <div id="myChart" class="chart" :style="{width: '1400px', height: '790px'}"></div>
     
         </div>
         <div class="layout-copy">
@@ -60,7 +70,7 @@
     export default {
         data(){
             return{
-
+                modal1:false   
             }
         },
         mounted(){
@@ -74,7 +84,7 @@
    let option = {
             title:{
                 text:'2015-2020年NHL所有损伤数量统计',
-                subtext: '数据来自NHL交易网站',
+                subtext: '数据来源：NHL交易网站',
         
                 //left='center'
             },
@@ -97,7 +107,7 @@
             },
             xAxis: {type: 'category',name:'月份'},
             yAxis: {gridIndex: 0,name:'数量（个）'},
-            grid: {top: '50%',bottom:'5%'},
+            grid: {top: '50%',bottom:'10%'},
             toolbox: {
                     show: true,
                     orient: 'vertical',

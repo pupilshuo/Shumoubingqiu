@@ -38,9 +38,19 @@
         <div class="layout-ceiling">
                 <font class="title" style="font-family:'隶书';font-size:40px;color:white">不同球龄球员工资图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="不同球龄球员工资图"
+        @on-ok="ok"
+        >
+<p>
+以7年为界限划分老兵和新兵，通过统计不同服役时间球员的工资信息以柱状图形式进行新老兵工资的对比：服役时间较长的球员工资远高于服役时间短的球员的工资。同时以仪表盘形式进行新老兵工资占比情况的展示。
+</p>
+</Modal>
+
             </div>
         </div>
         
@@ -63,7 +73,7 @@
     export default {
         data(){
             return{
-
+                modal1:false   
             }
         },
         mounted(){
@@ -88,7 +98,7 @@
     },
      title : {          
          text:'新兵工资占比图',
-         subtext:'(数据来源：Hockey Reference)',     //设置仪表盘中间显示文字样式
+         subtext:'数据来源：Hockey Reference',     //设置仪表盘中间显示文字样式
                         textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
                             color:"black"
                         }
@@ -114,7 +124,7 @@
     },
     title:{
         text:'老兵工资占比图',
-        subtext:'(数据来源：Hockey Reference)',
+        subtext:'数据来源：Hockey Reference',
     },
     toolbox: {
         feature: {
@@ -134,7 +144,7 @@
         })
         // 绘制图表
         myChart.setOption({
-            title: { text: '不同服役时间球员的工资图',subtext:'(数据来源：Hockey Reference)', },
+            title: { text: '不同服役时间球员的工资图',subtext:'数据来源：Hockey Reference', },
             tooltip: {},
             xAxis: {
                  type: 'category',

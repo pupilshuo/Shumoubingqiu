@@ -39,16 +39,26 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">损伤词云图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">运动损伤词云图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="运动损伤词云图"
+        @on-ok="ok"
+        >
+<p>
+通过各损伤部位数量与人体矢量图形相结合的方式进行词云图的制作，对各部位损伤信息进行定性分析，直观地得到不同损伤占比情况：下半身损伤数最多，上半身、疾病和脑震荡也占有一定比例。
+</p>
+</Modal>
+
             </div>
         </div>
         
-        <div style="height: 1000px">
-       <div id="main" class="chart" :style="{width: '1600px', height: '1000px'}"></div>
+        <div style="height: 800px">
+       <div id="main" class="chart" :style="{width: '1600px', height: '800px'}"></div>
     
         </div>
         <div class="layout-copy">
@@ -60,7 +70,7 @@
     export default {
         data(){
             return{
-
+             modal1:false   
             }
         },
         mounted(){
@@ -1049,8 +1059,8 @@
                 maskImage.onload = function () {
                     myChart.setOption({
                         title: {
-                            text: '损伤词云图',
-                            subtext: '数据来自NHL交易网站',
+                            text: '球员运动损伤部位词云图',
+                            subtext: '数据来源：NHL交易网站',
                             //left: 'center'
                         },
                         backgroundColor: '#fff',

@@ -36,11 +36,21 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">世界球员进攻效率热图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">不同地区进攻效率热图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="世界球员进攻效率热图"
+        @on-ok="ok"
+        >
+<p>
+将不同国家球员的进攻效率与世界地图结合进行进攻效率热图的制作，不难发现NHL球员主要来自北美和亚洲北部，且亚洲北部与北美南部国家的球员效率较高。
+</p>
+</Modal>
+
             </div>
         </div>
         
@@ -72,6 +82,7 @@
     },
     data() {
       return {
+        modal1:false,   
         chart: null,
         data:[
            {"name": "意大利","value": -1.0},
@@ -110,16 +121,15 @@
           backgroundColor: "#FDF5E6",
           title: {    //地图显示标题
             text: '不同国家球员进攻效率热图',
-            subtext: '(数据来源：Hockey Reference)',
+            subtext: '数据来源：Hockey Reference',
             sublink: 'http://www.hockeyreference.com',
             top:"28px",
-            left: 'center',
-            textStyle: {color: '#333',fontSize:35,  fontStyle :'oblique',}
+            textStyle: {color: '#333',fontSize:20}
           },
           visualMap: {   //图列显示柱
               type: 'continuous',
               min: -15,
-              left:30,
+              right:30,
               max: 6,
               text:['大','小'],
               realtime: false,
@@ -129,10 +139,9 @@
           toolbox: {  //工具栏
               show: true,
               orient: 'vertical',
-              left: 'right',
-              top:50,
+              top:100,
               itemGap:20,
-              left:30,
+              right:30,
               feature: {
                   dataView: {readOnly: false},
                   restore: {},

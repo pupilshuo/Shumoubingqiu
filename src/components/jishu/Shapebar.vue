@@ -39,16 +39,27 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">冰球损伤象形柱图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">球员损伤部位象形柱图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="球员损伤部位象形柱图"
+        @on-ok="ok"
+        >
+<p>
+通过对2015-2020年间NHL球员损伤类型数据统计进行象形柱状图的制作，并得到冰球运动中上半身和下半身受伤数量明显较多，其次为脑部损伤，心脏和腹部受伤的数量就明显较少的结论。
+</p>
+</Modal>
+
             </div>
         </div>
         
         <div style="height: 1000px">
-       <div id="myChart" class="chart" :style="{width: '1400px', height: '1000px'}"></div>
+       
+        <div id="myChart" class="chart" :style="{width: '1400px', height: '1000px'}"></div>
     
         </div>
         <div class="layout-copy">
@@ -60,7 +71,7 @@
     export default {
         data(){
             return{
-
+                modal1:false   
             }
         },
         mounted(){
@@ -92,7 +103,7 @@
         myChart.setOption({
              title:{
         text:'2015-2020NHL各类损伤象形柱图',
-        subtext: '数据来自NHL交易网站',
+        subtext: '数据来源：NHL交易网站',
         //left='center'
     },
     tooltip: {

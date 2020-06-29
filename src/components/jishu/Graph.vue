@@ -39,16 +39,25 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">球员损伤文献知识图谱</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">冰球损伤文献知识图谱</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="冰球损伤文献知识图谱"
+        @on-ok="ok"
+        >
+<p>
+通过对中国知网、EBSCO、SCI三大文献库文献关键词（冰球、比赛、损伤）的查找摘录进行知识图谱的制作，以对各文献库中所包含体育学相关冰球损伤文献数量、所用语言、发表时间跨度、针对损伤部位等信息进行清晰地展示。
+</p>
+</Modal>
             </div>
         </div>
         
-        <div style="height: 1500px">
-        <div  class="chart" id="myChart" :style="{width: '1500px', height: '1500px'}"></div>
+        <div style="height: 800px">
+        <div  class="chart" id="myChart" :style="{width: '1700px', height: '800px'}"></div>
     
         </div>
         <div class="layout-copy">
@@ -61,7 +70,7 @@
     export default {
         data(){
             return{
-
+                modal1:false
             }
         },
         mounted(){
@@ -78,8 +87,8 @@
 
         myChart.setOption({  
        title: { 
-                text: 'NHL冰球损伤文献知识图谱',
-                subtext: '数据来自中国知网、Web of sicence以及EBSCO网站',
+                text: '2015-2020年间NHL球员各类损伤象形柱图',
+                subtext: '数据来源：中国知网、Web of Science以及EBSCO网站',
                 //left:'center',
                 //bottom:'50'
             

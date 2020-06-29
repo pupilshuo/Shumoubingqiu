@@ -36,11 +36,21 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">球场站位球员工资图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white;margin-right:200px">球场站位球员工资图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title="球场站位球员工资图"
+        @on-ok="ok"
+        >
+<p>
+通过对球员站位的分类和其相应的工资信息进行对比，以饼状图和漏斗图的形式进行结果的展示：中场与边锋球员工资远高于防卫人员，中场球员工资略高于边锋球员工资。
+</p>
+</Modal>
+
             </div>
         </div>
         
@@ -65,7 +75,7 @@
     export default {
         data(){
             return{
-
+                modal1:false   
             }
         },
         mounted(){
@@ -84,7 +94,7 @@
         myChart1.setOption({
               title: {
         text: '不同位置球员工资比例图',
-        subtext: 'NHL联赛15-20赛季',subtext:'(数据来源：Hockey Reference)',
+        subtext: 'NHL联赛15-20赛季',subtext:'数据来源：Hockey Reference',
     },
     tooltip: {
         trigger: 'item',
@@ -148,7 +158,7 @@
         myChart.setOption({   
               title: {
         text: '不同位置球员工资比例图',
-        subtext: 'NHL联赛15-20赛季',subtext:'(数据来源：Hockey Reference)',
+        subtext: 'NHL联赛15-20赛季',subtext:'数据来源：Hockey Reference',
     },  
             series : [
 {

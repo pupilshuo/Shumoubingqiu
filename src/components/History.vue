@@ -36,11 +36,24 @@
 <template>
     <div class="layout">
         <div class="layout-ceiling">
-                <font class="title" style="font-family:'隶书';font-size:40px;color:white">NHL球队进攻效率图</font>
+                <font class="title" style="font-family:'隶书';font-size:40px;color:white">球队进攻效率图</font>
             <div class="layout-ceiling-main">
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">帮助</a> |
-                <a href="#" style="font-family:'隶书';font-size:20px;color:white">关于我们</a> |
+                <a href="#" style="font-family:'隶书';font-size:20px;color:white" @click="modal1 = true">帮助</a> |
+               
                 <a href="#" @click="back" style="font-family:'隶书';font-size:20px;color:white">返回</a>
+                <Modal
+        v-model="modal1"
+        title=" NHL球队进攻效率图"
+        @on-ok="ok"
+        >
+        <p> 
+通过对2015-2020年间NHL球队进攻效率的统计整合，以柱状图的形式全面地将NHL球队5年来的所有年度进攻效率详情以及对比进行展示。
+
+</p >
+        
+    </Modal>
+
+
             </div>
         </div>
         
@@ -64,7 +77,7 @@
     export default {
         data(){
             return{
-
+                modal1:false   
             }
         },
         mounted(){
@@ -134,7 +147,7 @@
     title:{
         show:true,
         text:'2015-2020NHL各球队比赛进攻效率',
-        subtext:'(数据来源：Hockey Reference)',
+        subtext:'数据来源：Hockey Reference',
         textStyle: {//主标题文本样式{"fontSize": 18,"fontWeight": "bolder","color": "#333"}
                 fontFamily: '微软雅黑',
                 fontSize: 16,
