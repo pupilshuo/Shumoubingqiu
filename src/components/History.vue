@@ -46,7 +46,7 @@
         title=" NHL球队进攻效率图"
         @on-ok="ok"
         >
-        <p> 
+        <p style="font-size:25px" > 
 通过对2015-2020年间NHL球队进攻效率的统计整合，以柱状图的形式全面地将NHL球队5年来的所有年度进攻效率详情以及对比进行展示。
 
 </p >
@@ -57,7 +57,7 @@
             </div>
         </div>
         
-        <div style="height: 1000px"><Row>
+        <div style="height: 750px"><Row>
         <i-col span="4"><img src="../assets/2.jpg"/></i-col>
         <i-col span="16" >
                 <div id="myChart" :style="{width: '1000px', height: '750px'}"></div>
@@ -104,39 +104,14 @@
         // 基于准备好的dom，初始化echarts实例
         let myChart = this.$echarts.init(document.getElementById('myChart'))
         // 绘制图表
-        let team = ['安纳海姆小鸭队(Anaheim Ducks)', '凤凰城野狼队(Arizona Coyotes)', '波士顿棕熊队(Boston Bruins)',
-         '布法罗军刀队(Buffalo Sabres)', '卡加利火焰队(Calgary Flames)', '卡罗来纳飓风队(Carolina Hurricanes)',
-          '芝加哥黑鹰队(Chicago Blackhawks)', '科罗拉多雪崩队(Colorado Avalanche)', '哥伦布蓝衣队(Columbus Blue Jackets)',
-           '达拉斯星队(Dallas Stars)', '底特律红翼队(Detroit Red Wings)', '埃德蒙顿油工队(Edmonton Oilers)',
-            '佛罗里达黑豹队(Florida Panthers)', '洛杉矶国王队(Los Angeles Kings)', '明尼苏达荒野队(Minnesota Wild)', 
-            '蒙特利尔加拿大人队(Montreal Canadiens)', '纳什维尔掠夺者队(Nashville Predators)', '新泽西恶人队(New Jersey Devils)',
-             '纽约岛人队(New York Islanders)', '纽约游骑兵队(New York Rangers)', '渥太华参议员队(Ottawa Senators)',
-              '费城飞人队(Philadelphia Flyers)', '匹兹堡企鹅队(Pittsburgh Penguins)', '圣荷西鲨鱼队(San Jose Sharks)',
-               '渥太华参议员队Vancouver Canucks', '华盛顿首都队(Washington Capitals)', '温尼伯喷气机(Winnipeg Jets',
-               '圣路易斯蓝调队(St. Louis Blues)', '坦帕湾闪电队(Tampa Bay Lightning', '多伦多枫叶队(Toronto Maple Leafs)',] 
-        let data2015=[0.665, 0.341, 0.585, 0.329, 0.591, 0.433, 0.622, 0.549, 0.543, 0.561, 0.61, 0.378, 0.555, 0.579, 0.61, 0.671, 0.634, 0.476, 0.616, 0.689, 0.604, 0.512, 0.598, 0.543, 0.665, 0.659, 0.415, 0.616, 0.616, 0.604]
-        let data2016=[0.628, 0.476, 0.567, 0.494, 0.47, 0.524, 0.628, 0.5, 0.463, 0.665, 0.567, 0.427, 0.628, 0.622, 0.53, 0.5, 0.585, 0.512, 0.61, 0.616, 0.518, 0.585, 0.634, 0.598, 0.652, 0.591, 0.421, 0.457, 0.732, 0.476]
-        let data2017=[0.64, 0.427, 0.579, 0.476, 0.573, 0.53, 0.665, 0.293, 0.659, 0.482, 0.482, 0.628, 0.494, 0.524, 0.646, 0.628, 0.573, 0.427, 0.573, 0.622, 0.598, 0.537, 0.677, 0.604, 0.604, 0.573, 0.579, 0.421, 0.72, 0.53]
-        let data2018=[0.616, 0.427, 0.683, 0.378, 0.512, 0.506, 0.463, 0.579, 0.591, 0.561, 0.445, 0.476, 0.585, 0.598, 0.616, 0.433, 0.713, 0.591, 0.488, 0.47, 0.409, 0.598, 0.61, 0.61, 0.573, 0.689, 0.64, 0.445, 0.665, 0.64, 0.695]
-        let data2019=[0.488, 0.524, 0.652, 0.463, 0.652, 0.604, 0.512, 0.549, 0.598, 0.567, 0.451, 0.482, 0.524, 0.433, 0.506, 0.585, 0.61, 0.439, 0.628, 0.476, 0.39, 0.5, 0.61, 0.616, 0.604, 0.78, 0.61, 0.494, 0.567, 0.634, 0.604]
-        let data2020=[0.472, 0.529, 0.714, 0.493, 0.564, 0.596, 0.514, 0.657, 0.579, 0.594, 0.275, 0.585, 0.565, 0.457, 0.558, 0.5, 0.565, 0.493, 0.588, 0.564, 0.437, 0.645, 0.623, 0.45, 0.662, 0.657, 0.579, 0.565, 0.606, 0.652, 0.563]
-        var sum ={data2015,data2016,data2017,data2018,data2019,data2020}
-        var result = [];  
-        for(let key in sum){
-		//遍历数组的每一项
-		sum[key].forEach((value,index) => {
-			if( isBlank(result[index]) ){
-				result[index] = 0 ;
-			}
-			result[index] += value ;		
-		})		
-	}
-	//打印结果
-	console.log(result);
-        function isBlank(val){
-		if(val == null || val == ""){
-			return true;
-		}}
+        let data2020= [0.493, 0.529, 0.275, 0.493, 0.437, 0.585, 0.565, 0.657, 0.596, 0.457, 0.579, 0.5, 0.565, 0.564, 0.645, 0.514, 0.45, 0.594, 0.579, 0.564, 0.558, 0.588, 0.472, 0.652, 0.565, 0.623, 0.662, 0.714, 0.606, 0.657]
+let data2019= [0.463, 0.524, 0.451, 0.439, 0.39, 0.482, 0.494, 0.549, 0.604, 0.433, 0.61, 0.585, 0.524, 0.652, 0.5, 0.512, 0.616, 0.567, 0.598, 0.476, 0.506, 0.628, 0.488, 0.634, 0.61, 0.61, 0.604, 0.652, 0.567, 0.78]
+let data2018= [0.378, 0.427, 0.445, 0.591, 0.409, 0.476, 0.445, 0.579, 0.506, 0.598, 0.64, 0.433, 0.585, 0.512, 0.598, 0.463, 0.61, 0.561, 0.591, 0.47, 0.616, 0.488, 0.616, 0.64, 0.713, 0.61, 0.573, 0.683, 0.665, 0.689]
+let data2017= [0.476, 0.427, 0.482, 0.427, 0.598, 0.628, 0.421, 0.293, 0.53, 0.524, 0.579, 0.628, 0.494, 0.573, 0.537, 0.665, 0.604, 0.482, 0.659, 0.622, 0.646, 0.573, 0.64, 0.53, 0.573, 0.677, 0.604, 0.579, 0.72, 0.573]
+let data2016= [0.494, 0.476, 0.567, 0.512, 0.518, 0.427, 0.457, 0.5, 0.524, 0.622, 0.421, 0.5, 0.628, 0.47, 0.585, 0.628, 0.598, 0.665, 0.463, 0.616, 0.53, 0.61, 0.628, 0.476, 0.585, 0.634, 0.652, 0.567, 0.732, 0.591]
+let data2015= [0.329, 0.341, 0.61, 0.476, 0.604, 0.378, 0.616, 0.549, 0.433, 0.579, 0.415, 0.671, 0.555, 0.591, 0.512, 0.622, 0.543, 0.561, 0.543, 0.689, 0.61, 0.616, 0.665, 0.604, 0.634, 0.598, 0.665, 0.585, 0.616, 0.659]
+let team= ['布法罗军刀队(Buffalo Sabres)', '凤凰城野狼队(Arizona Coyotes)', '底特律红翼队(Detroit Red Wings)', '新泽西恶人队(New Jersey Devils)', '渥太华参议员队(Ottawa Senators)', '埃德蒙顿油工队(Edmonton Oilers)', '圣路易斯蓝调队(St. Louis Blues)', '科罗拉多雪崩队(Colorado Avalanche)', '卡罗来纳飓风队(Carolina Hurricanes)', '洛杉矶国王队(Los Angeles Kings)', '温尼伯喷气机(Winnipeg Jets', '蒙特利尔加拿大人队(Montreal Canadiens)', '佛罗里达黑豹队(Florida Panthers)', '卡加利火焰队(Calgary Flames)', '费城飞人队(Philadelphia Flyers)', '芝加哥黑鹰队(Chicago Blackhawks)', '圣荷西鲨鱼队(San Jose Sharks)', '达拉斯星队(Dallas Stars)', '哥伦布蓝衣队(Columbus Blue Jackets)', '纽约游骑兵队(New York Rangers)', '明尼苏达荒野队(Minnesota Wild)', '纽约岛人队(New York Islanders)', '安纳海姆小鸭队(Anaheim Ducks)', '多伦多枫叶队(Toronto Maple Leafs)', '纳什维尔掠夺者队(Nashville Predators)', '匹兹堡企鹅队(Pittsburgh Penguins)', '渥太华参议员队Vancouver Canucks', '波士顿棕熊队(Boston Bruins)', '坦帕湾闪电队(Tampa Bay Lightning', '华盛顿首都队(Washington Capitals)']
+        
         myChart.setOption({
             tooltip: {
         trigger: 'axis',
@@ -170,16 +145,7 @@
     yAxis: {
         type: 'category',
         
-        data: ['安纳海姆小鸭队(Anaheim Ducks)', '凤凰城野狼队(Arizona Coyotes)', '波士顿棕熊队(Boston Bruins)',
-         '布法罗军刀队(Buffalo Sabres)', '卡加利火焰队(Calgary Flames)', '卡罗来纳飓风队(Carolina Hurricanes)',
-          '芝加哥黑鹰队(Chicago Blackhawks)', '科罗拉多雪崩队(Colorado Avalanche)', '哥伦布蓝衣队(Columbus Blue Jackets)',
-           '达拉斯星队(Dallas Stars)', '底特律红翼队(Detroit Red Wings)', '埃德蒙顿油工队(Edmonton Oilers)',
-            '佛罗里达黑豹队(Florida Panthers)', '洛杉矶国王队(Los Angeles Kings)', '明尼苏达荒野队(Minnesota Wild)', 
-            '蒙特利尔加拿大人队(Montreal Canadiens)', '纳什维尔掠夺者队(Nashville Predators)', '新泽西恶人队(New Jersey Devils)',
-             '纽约岛人队(New York Islanders)', '纽约游骑兵队(New York Rangers)', '渥太华参议员队(Ottawa Senators)',
-              '费城飞人队(Philadelphia Flyers)', '匹兹堡企鹅队(Pittsburgh Penguins)', '圣荷西鲨鱼队(San Jose Sharks)',
-               '渥太华参议员队Vancouver Canucks', '华盛顿首都队(Washington Capitals)', '温尼伯喷气机(Winnipeg Jets',
-               '圣路易斯蓝调队(St. Louis Blues)', '坦帕湾闪电队(Tampa Bay Lightning', '多伦多枫叶队(Toronto Maple Leafs)',] 
+        data: team,
     },
     series: [
         {
@@ -190,8 +156,8 @@
                 show: true,
                 position: 'insideRight'
             },
-            data: [0.665, 0.341, 0.585, 0.329, 0.591, 0.433, 0.622, 0.549, 0.543, 0.561, 0.61, 0.378, 0.555, 0.579, 0.61, 0.671, 0.634, 0.476, 0.616, 0.689, 0.604, 0.512, 0.598, 0.543, 0.665, 0.659, 0.415, 0.616, 0.616, 0.604]
-        },
+            data:data2015 
+            },
         {
             name: '2016',
             type: 'bar',
@@ -200,8 +166,8 @@
                 show: true,
                 position: 'insideRight'
             },
-            data: [0.628, 0.476, 0.567, 0.494, 0.47, 0.524, 0.628, 0.5, 0.463, 0.665, 0.567, 0.427, 0.628, 0.622, 0.53, 0.5, 0.585, 0.512, 0.61, 0.616, 0.518, 0.585, 0.634, 0.598, 0.652, 0.591, 0.421, 0.457, 0.732, 0.476]
-        },
+            data:data2016 
+            },
         {
             name: '2017',
             type: 'bar',
@@ -210,8 +176,8 @@
                 show: true,
                 position: 'insideRight'
             },
-            data:[0.64, 0.427, 0.579, 0.476, 0.573, 0.53, 0.665, 0.293, 0.659, 0.482, 0.482, 0.628, 0.494, 0.524, 0.646, 0.628, 0.573, 0.427, 0.573, 0.622, 0.598, 0.537, 0.677, 0.604, 0.604, 0.573, 0.579, 0.421, 0.72, 0.53]
-        },
+            data:data2017
+            },
         {
             name: '2018',
             type: 'bar',
@@ -220,8 +186,8 @@
                 show: true,
                 position: 'insideRight'
             },
-            data: [0.616, 0.427, 0.683, 0.378, 0.512, 0.506, 0.463, 0.579, 0.591, 0.561, 0.445, 0.476, 0.585, 0.598, 0.616, 0.433, 0.713, 0.591, 0.488, 0.47, 0.409, 0.598, 0.61, 0.61, 0.573, 0.689, 0.64, 0.445, 0.665, 0.64, 0.695]
-        },
+            data:data2018 
+            },
         {
             name: '2019',
             type: 'bar',
@@ -230,8 +196,7 @@
                 show: true,
                 position: 'insideRight'
             },
-            data: [0.488, 0.524, 0.652, 0.463, 0.652, 0.604, 0.512, 0.549, 0.598, 0.567, 0.451, 0.482, 0.524, 0.433, 0.506, 0.585, 0.61, 0.439, 0.628, 0.476, 0.39, 0.5, 0.61, 0.616, 0.604, 0.78, 0.61, 0.494, 0.567, 0.634, 0.604]
-        },
+            data:data2019},
          {
             name: '2020',
             type: 'bar',
@@ -240,7 +205,7 @@
                 show: true,
                 position: 'insideRight'
             },
-            data: [0.472, 0.529, 0.714, 0.493, 0.564, 0.596, 0.514, 0.657, 0.579, 0.594, 0.275, 0.585, 0.565, 0.457, 0.558, 0.5, 0.565, 0.493, 0.588, 0.564, 0.437, 0.645, 0.623, 0.45, 0.662, 0.657, 0.579, 0.565, 0.606, 0.652, 0.563]
+            data: data2020,
         }]
         })}        
   }}

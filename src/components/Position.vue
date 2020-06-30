@@ -46,14 +46,13 @@
         title="球场站位球员工资图"
         @on-ok="ok"
         >
-<p>
+<p style="font-size:25px">
 通过对球员站位的分类和其相应的工资信息进行对比，以饼状图和漏斗图的形式进行结果的展示：中场与边锋球员工资远高于防卫人员，中场球员工资略高于边锋球员工资。
 </p>
 </Modal>
 
             </div>
         </div>
-        
         <div style="height: 1000px"><Row>
         <i-col span="4"><img src="../assets/2.jpg"/></i-col>
         <i-col span="16" > <div class="charts">
